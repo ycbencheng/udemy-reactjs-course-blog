@@ -8,8 +8,24 @@ class PostList extends Component {
     this.props.fetchPost();
   }
 
+  renderList() {
+    return this.props.posts.map((post) => {
+      return (
+        <div class="item" key={post.id}>
+          <i class="large middle aligned icon user" />
+          <div class="content">
+            <div class="description">
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  }
+
   render() {
-    return <div>PostList</div>;
+    return <div class="ui relaxed divided list">{this.renderList()}</div>;
   }
 }
 
